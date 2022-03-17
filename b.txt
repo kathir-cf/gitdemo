@@ -1,0 +1,420 @@
+String:
+
+
+	"", ''
+	immutable
+
+	String s="hello"; ---@110
+	s.conact('hi"); --@1112 (temp mem)
+
+String s="hi"; - string literal
+
+
+ES6:
+
+	template literals
+
+	let name='ajay';
+	let age=28;
+	//let result='Mr. '+name+' welcome to my paradise of pgming '+age+' is my age';
+	let result=`Mr. ${name}, welcome to my paradise of pgming ${age} is my age. this isn't my actual age`;
+
+	let chk='name isn\'t right';
+
+
+find the length : length, string is nothing but array of char , index starts with 0
+
+chk
+"name isn't right"
+chk.length
+16
+chk[0]
+'n'
+let val=false;
+undefined
+val.toString();
+'false'
+typeof(val.toString());
+'string'
+Boolean(val.toString()); // return false for empty string
+true//coz false is a non empty string , 
+
+== and === ->  comnparison
+
+
+charAt(),toUpperCase(),substr,concat,indexOf, lastIndexOf,trim, trimStart,trimEnd(),match(),replace(regexp)
+split(),slice()
+
+task :
+
+hint: split(seperator) or slice()
+
+	123.23.4.5 --chk and whether its a valid ip or not
+
+	it shud have 4 components
+	each component shud range b/w 0-255
+
+slice(startIndex[,endIndex]) -
+
+startIndex - zero based index
+endIndex- when not given it takes whole string
+
+let email="kathiresan@clayfin.com"
+undefined
+email.slice(11);
+'clayfin.com'
+
+JS Arrays:
+
+seq of chars
+continuous mem allocation
+size s fixed
+collection of homogenous datatype ?
+
+
+Each value is called as an element identified by an Index
+
+Index starts with 0
+
+
+declare an array:
+
+	var scores=new Array();
+	var scores=new Array(10);
+	var scores=new Array(1,3,5,4,7);
+	var scores=[]; //initialize (includes declaration)
+
+new keyword can also be omitted
+	
+	scores=Array();
+	scores=Array(1,2,4);
+	or
+	scores=[45,65,34,67];
+	scores=[];
+
+	console.log(scores[3]);
+
+
+	scores=[];
+
+	console.log(scores[3]);
+VM555:3 undefined
+undefined
+		console.log(scores[1]);
+VM563:1 undefined
+undefined
+var scores=new Array(1,3,5,4,7);
+undefined
+		console.log(scores[1]);
+VM575:1 3
+undefined
+//size of an array
+undefined
+scores.length
+5
+
+
+basic operations on array:
+
+	map
+	filter
+	reduce
+	push
+	pop
+	splice
+
+Splice:
+
+	insert, delete, replace
+
+
+let score=[34,45,65,55,43];
+score.splice(0,2);
+
+o/p:
+=====
+(2) [34, 45]
+score
+(3) [65, 55, 43]
+
+let score=[34,45,65,55,43];
+score.splice(0,2);
+(2) [34, 45]
+score
+(3) [65, 55, 43]
+
+score.splice(2,0,890);
+[]
+score
+(4) [65, 55, 890, 43]
+
+Push and pop:
+
+score
+(4) [65, 55, 890, 43]
+score.push(3000);
+5
+score
+(5) [65, 55, 890, 43, 3000]
+score.pop();
+3000
+score
+(4) [65, 55, 890, 43]
+
+Sorting:  by default --ascending order
+=========
+
+score.sort();
+score
+
+
+let f=function(a,b){
+	if(a>b) return 1; if (a<b) return -1; return 0;
+}
+//above is a c	unction with my logic and pass it as an arg of the function sort()
+
+
+score.sort(func);
+	
+
+filter:
+based on condtion or criteria
+another subset of data based on criteria
+
+
+let employee=[
+		{id:12,name:'ajay',sal:3000},
+		{id:24,name:'bbbb',sal:5678},
+		{id:23,name:'rrrr',sal:4590},
+		{id:22,name:'max',sal:3454}
+		];
+
+
+	
+let salGrt3k=employee.filter(
+
+		function(e){
+			return e.sal>3001;
+		}
+	);
+
+salGrt3k
+(3) [{…}, {…}, {…}]
+0: {id: 24, name: 'bbbb', sal: 5678}
+1: {id: 23, name: 'rrrr', sal: 4590}
+2: {id: 22, name: 'max', sal: 3454}
+length: 3
+[[Prototype]]: Array(0)
+
+
+map():
+
+
+let price=[3000,2000,4000,4568,3436];
+
+
+function calNewPrice(pr)
+{
+
+	var res=pr+(pr*18)/100;
+	return res
+	
+}
+
+let finalPrice=price.map(calNewPrice);
+finalPrice;
+
+let price=[3000,2000,4000,4568,3436];
+
+
+function calNewPrice(pr)
+{
+
+	var res=pr+(pr*18)/100;
+	return res
+	
+}
+
+let finalPrice=price.map(calNewPrice);
+finalPrice;
+(5) [3540, 2360, 4720, 5390.24, 4054.48]
+	
+
+task 2: do the above scenario on employee array of object where sal shud be incremented by 10% of the base pay,
+	base is given below
+
+
+	sal---> 30000,40000,35678,56789
+
+
+reduce:
+	
+	let num=[34,45,32,22,20];
+	
+function sum(prev,curr)
+{
+	return prev+curr;
+}
+
+	let sum1=num.reduce(sum);
+
+logic:
+
+34 45
+ 34+45 =79 --prev    79+32 (curr)=..........
+
+	let num=[34,45,32,22,20];
+	
+function sum(a,b)
+{
+	return a+b;
+}
+
+	let sum1=num.reduce(sum);
+undefined
+sum1
+153
+
+
+task 3: forEach,join......
+
+
+Arrow functions: (=>)
+
+	function add(a,b){
+		return a+b;//expression		
+	}
+
+	let add=function(a,b){
+		return a+b;//expression		
+	}
+
+	eqv in arrows
+
+	let add=(a,b)=> a+b; //no return if single line expressions are thr
+
+
+
+	let converter=function(str)
+	{
+		let name="Mr. "+str;
+		let res=name.toUpperCase();
+		return res;
+	}
+
+
+	eqv in arrows
+
+	let converter=(str)=> 
+		{
+		let name="Mr. "+str;
+		let res=name.toUpperCase();
+		return res;
+		}
+
+	converter("ajay")
+
+
+Extended parameter handling:
+
+
+default parameter
+	
+	function display(x,y,z){
+		if(z ===undefined)
+			z=90;
+		if(x ===undefined)
+			x=1;
+		if(y ===undefined)
+			y=2;
+		console.log(x+' '+y+' '+z);
+	}
+
+	 display(2,3)
+
+in es 6 possible in easy way
+
+	function display(x=1,y=2,z=90){
+		
+		console.log(x+' '+y+' '+z);
+	}
+
+	 display(2,3)
+
+
+function display(x,y,z){
+		console.log(x+' '+y+' '+z);
+	}
+
+	 display(2,3)
+VM940:2 2 3 undefined
+undefined
+function display(x=1,y=2,z=90){
+		
+		console.log(x+' '+y+' '+z);
+	}
+
+	 display(2,3)
+VM945:3 2 3 90
+
+
+rest operator: (representation : ...a)
+
+	without rest:
+
+	function add(a,b)
+	{
+		return a+b;
+	}
+
+	add(2,3,4,5)	
+no error in code:
+	function add(a,b)
+	{
+		
+		return a+b;
+	}
+
+	add(2,3,4,5)	
+5
+add(2,3)
+5
+
+		function add(a,b,...rem)
+		{
+		console.log(a);
+		console.log(b);
+		console.log(rem);
+		}
+		add(2,3,4,5);
+// 2 3 [4,5]
+
+function add(a,b,...rem)
+		{
+		console.log(a);
+		console.log(b);
+		console.log(rem[0]);
+		console.log(rem[1]);
+		}
+		add(2,3,4,5);
+
+//2 3 4 5
+with rest
+
+task 4: Spread Operator:
+
+
+later : IIFE, pure functions, closure...fetch API
+
+
+
+
+
+
+
+
+
+
+
+
+
